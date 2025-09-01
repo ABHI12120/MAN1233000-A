@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cosplay Costumes Admin Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #23272f;
+            color: #fff;
+            font-family: Arial,sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .login-box {
+            background: #33394d;
+            border-radius: 10px;
+            padding: 32px 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.22);
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .login-box h2 {
+            margin-bottom: 18px;
+            color: #aadfff;
+            text-align: center;
+        }
+        .login-box input {
+            padding: 10px;
+            margin-bottom: 14px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .login-box button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .login-box button:hover {
+            background: #0056b3;
+        }
+        .error-message {
+            color: #ffb3b3;
+            margin-bottom: 10px;
+            text-align: center;
+            min-height: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form class="login-box" id="login-form" autocomplete="off">
+        <h2>Admin Login</h2>
+        <div class="error-message" id="error-message"></div>
+        <input type="text" id="username" placeholder="Username" required autofocus>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+    </form>
+    <script>
+        document.getElementById('login-form').onsubmit = function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            // Example: simple frontend validation (replace with your backend API call)
+            if (username === "" || password === "") {
+                document.getElementById('error-message').textContent = "Please enter both fields.";
+                return;
+            }
+            // Replace the following block with a real backend API call for authentication!
+            if (username === "admin" && password === "cosplay123") {
+                document.getElementById('error-message').style.color = "#b7ffb7";
+                document.getElementById('error-message').textContent = "Login successful! Redirecting...";
+                setTimeout(() => { window.location.href = "dashboard.html"; }, 1000); // Redirect example
+            } else {
+                document.getElementById('error-message').style.color = "#ffb3b3";
+                document.getElementById('error-message').textContent = "Invalid username or password.";
+            }
+        };
+    </script>
+</body>
+</html>
