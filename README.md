@@ -1,1 +1,1 @@
-# LUCKIEST-MAN
+# MAN
